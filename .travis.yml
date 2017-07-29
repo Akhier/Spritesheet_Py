@@ -2,3 +2,5 @@ language: python
 python:
   - "3.5"
 script: pytest -v
+before_install:
+  - sudo apt-get install -qq python-pygame
