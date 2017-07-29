@@ -1,13 +1,14 @@
 from spritesheet import get_spritesheet
 import pygame
 import pytest
+import os
 
 
 @pytest.fixture
 def setup():
+    os.environ['SDL_VIDEODRIVER'] = 'dummy'
     pygame.init()
-    pygame.display.set_mode((640, 480))
-    pygame.display.set_caption("spritesheet.py test")
+    pygame.display.set_mode((1, 1))
 
 
 def test_get_spritesheet_return_type(setup):
