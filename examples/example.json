@@ -1,17 +1,21 @@
 {
-"file": "examplesheet.png",
+"file": "examples/examplesheet.png",
 "colorkey": false,
 "sprite_width":50,
 "sprite_height":50,
 "sprites": [
 		{
-			"id": "yellow",
-			"id": "blue",
-			"id": "purple"
+			"row": [
+				{"id": "yellow"},
+				{"id": "blue"},
+				{"id": "purple"}
+			]
 		},
 		{
-			"id": "green",
-			"id": "red"
+			"row": [
+				{"id": "green"},
+				{"id": "red"}
+			]
 		}
 	]
 }

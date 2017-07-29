@@ -16,23 +16,27 @@ def get_spritesheet(jsonpath):
     size of the sprites you want, 'colorkey' which should either be the color
     you want keyed, -1 which will grab the top left pixels color to use, or
     false if you don't want a color keyed, and finally 'sprites' which contains
-    each row of your tileset in order which themselves need to contain 'id'
+    each 'row' of your tileset in order which themselves need to contain 'id'
     which is the name of the sprite and in the order they appear in the row
     For an example of this:
     {
-    "file": "examplesheet.png",
+    "file": "examples/examplesheet.png",
     "colorkey": false,
     "sprite_width":50,
     "sprite_height":50,
     "sprites": [
             {
-                "id": "yellow",
-                "id": "blue",
-                "id": "purple"
+                "row": [
+                    {"id": "yellow"},
+                    {"id": "blue"},
+                    {"id": "purple"}
+                ]
             },
             {
-                "id": "green",
-                "id": "red"
+                "row": [
+                    {"id": "green"},
+                    {"id": "red"}
+                ]
             }
         ]
     }
@@ -54,7 +58,8 @@ def get_spritesheet(jsonpath):
     y = 0
     for row in sheet_data['sprites']:
         x = 0
-        for sprite_name in row:
+        for sprite_id in row['row']:
+            sprite_name = sprite_id['id']
             rect = pygame.Rect(x, y, sprite_width, sprite_height)
             sprite = pygame.Surface(rect.size).convert()
             sprite.blit(full_image, (0, 0), rect)
