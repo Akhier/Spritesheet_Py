@@ -11,14 +11,7 @@ def get_spritesheet(jsonpath):
     '''Get a spritesheet through data stored in a json file
 
     This function expects all sprites to be the same size. Along with that it
-    needs your json file to have a 'file' with the location of the image
-    to get the sprites from, 'sprite_width' and 'sprite_height' to define the
-    size of the sprites you want, 'colorkey' which should either be the color
-    you want keyed, -1 which will grab the top left pixels color to use, or
-    false if you don't want a color keyed, and finally 'sprites' which contains
-    each 'row' of your tileset in order which themselves need to contain 'id'
-    which is the name of the sprite and in the order they appear in the row
-    For an example of this:
+    needs your json file to be formated like so:
     {
     "file": "examples/examplesheet.png",
     "colorkey": false,
