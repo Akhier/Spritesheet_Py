@@ -8,7 +8,7 @@ import pygame
 
 
 def get_spritesheet(jsonpath):
-    '''Get a spritesheet though data stored in a json file
+    '''Get a spritesheet through data stored in a json file
 
     This function expects all sprites to be the same size. Along with that it
     needs your json file to have a 'file' with the location of the image
