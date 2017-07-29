@@ -1,4 +1,4 @@
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __author__ = "Akhier Dragonheart"
 __license__ = "MIT"
 
@@ -17,6 +17,7 @@ def get_spritesheet(jsonpath):
     colorkey = sheet_data['colorkey']
     sprite_width = sheet_data['sprite_width']
     sprite_height = sheet_data['sprite_height']
+    sprites = {}
     y = 0
     for row in sheet_data['sprites']:
         x = 0
@@ -28,5 +29,7 @@ def get_spritesheet(jsonpath):
                 if colorkey is -1:
                     colorkey = sprite.get_at((0, 0))
                 sprite.set_colorkey(colorkey, pygame.RLEACCEL)
+            sprites[sprite_name] = sprite
             x += sprite_width
         y += sprite_height
+    return sprites
