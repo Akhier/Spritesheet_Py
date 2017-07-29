@@ -8,9 +8,15 @@ import pygame
 
 
 def get_spritesheet(jsonpath):
-    with open(jsonpath) as jsondata:
-        sheetdata = json.load(jsondata)
+    with open(jsonpath) as json_data:
+        sheet_data = json.load(json_data)
     try:
-        fullimage = pygame.image.load(sheetdata['file']).convert()
+        full_image = pygame.image.load(sheet_data['file']).convert()
     except FileNotFoundError:
-        print(sheetdata['file'] + " not found")
+        print(sheet_data['file'] + " not found")
+    color_key = sheet_data['color_key']
+    sprite_width = sheet_data['sprite_width']
+    sprite_height = sheet_data['sprite_height']
+    for row in sheet_data['sprites']:
+        for sprite_name in row:
+            pass
