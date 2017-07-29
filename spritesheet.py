@@ -14,9 +14,19 @@ def get_spritesheet(jsonpath):
         full_image = pygame.image.load(sheet_data['file']).convert()
     except FileNotFoundError:
         print(sheet_data['file'] + " not found")
-    color_key = sheet_data['color_key']
+    colorkey = sheet_data['colorkey']
     sprite_width = sheet_data['sprite_width']
     sprite_height = sheet_data['sprite_height']
+    y = 0
     for row in sheet_data['sprites']:
+        x = 0
         for sprite_name in row:
-            pass
+            rect = pygame.Rect(x, y, sprite_width, sprite_height)
+            sprite = pygame.Surface(rect.size).convert()
+            sprite.blit(full_image, (0, 0), rect)
+            if colorkey:
+                if colorkey is -1:
+                    colorkey = sprite.get_at((0, 0))
+                sprite.set_colorkey(colorkey, pygame.RLEACCEL)
+            x += sprite_width
+        y += sprite_height
