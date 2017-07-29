@@ -3,4 +3,6 @@ python:
   - "3.5"
 script: pytest -v
 before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get build-dep -qq python-pygame
   - sudo apt-get install -qq python-pygame
