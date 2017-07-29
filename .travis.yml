@@ -1,8 +1,6 @@
 language: python
 python:
   - "3.5"
-before_install:
-  - sudo apt-get update
-  - sudo apt-get build-dep python-pygame
-  - sudo apt-get install python-pygame
+install:
+  - python3 -m install pygame
 script: pytest -v
